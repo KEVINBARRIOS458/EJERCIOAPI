@@ -43,19 +43,14 @@ class PeliculasController extends Controller
             'message' => 'Registro creado correctamente',
         ], 200);
     }
-    public function login(Request $request)
-    {
-        //$user = User::WhereEmail($request->email)->first();
-        //if (!is_null($user)&& Has::check($request->password, %$user->password))
-        {
-           // $user->api_token = Str::random(length:100);
-           // $user->save();
-        }
-    }
+
+
+
+
     //GET returna un solo registro
-    public function show(Peliculas $peliculas)
+    public function show(Peliculas $pelicula)
     {
-        return $peliculas;
+        return $pelicula;
     }
 
     //PUT actualizar registros
@@ -74,6 +69,9 @@ class PeliculasController extends Controller
     public function destroy($id)
     {
         Peliculas::destroy($id);
-        return response();
+        return response()->json([
+            'res' => true,
+            'message' => 'Pelicula Eliminada Exitosamente'
+        ],  200);
     }
 }

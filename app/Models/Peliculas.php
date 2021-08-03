@@ -12,6 +12,7 @@ class Peliculas extends Authenticatable
     use HasApiTokens, Notifiable;
     protected $table='peliculas';
     protected $fillable = [
+        'idpeliculas',
         'nombre',
         'descripcion',
         'categorias'
