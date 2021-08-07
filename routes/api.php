@@ -19,13 +19,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-//Route::get("Peliculas",[\App\Http\Controllers\PeliculasController::class, "getAll"]);
 
-//Route::apiResource('peliculas', \App\Http\Controllers\PeliculasController::class);
 
 Route::post('users', 'UserControler@store');
 Route::post('login','UserControler@login');
 Route::group(['middleware' => 'auth:api'], function () {
-    Route::ApiResource('peliculas', 'PeliculasController');
+    Route::apiResource('peliculas', 'PeliculasController');
+    Route::post('logout', 'UserControler@logout');
 });
 
